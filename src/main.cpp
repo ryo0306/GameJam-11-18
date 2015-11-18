@@ -1,29 +1,15 @@
-﻿//
-// アプリ雛形
-// 
+﻿#include "GameJam/System/Scene Manager/sceneManager.hpp"
+#include "GameJam/System/commons.hpp"
 
-// GameTemplateで用意されている機能
-// の全てをインクルード
-#include "lib/framework.hpp"
-
-
-// 
-// メインプログラム
-// 
 int main() {
-  // アプリウインドウを生成
-  // TIPS:必ず、最初に生成する事
-  AppEnv env(640, 480);
+  App::Get();
+  SceneManager manager;
+  while (App::Get().isOpen()) {
+    App::Get().begin();
+    
+    manager.Update();
+    manager.Draw();
 
-  while (env.isOpen()) {
-    // 開始
-    env.begin();
-    
-    // 
-    // アプリの処理をここに書く
-    // 
-    
-    // 終了
-    env.end();
+    App::Get().end();
   }
 }

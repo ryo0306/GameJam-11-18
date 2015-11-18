@@ -1,7 +1,7 @@
 #include "sceneManager.hpp"
 
 SceneManager::SceneManager(){
-  current_scene = std::make_shared<TargetScene>();
+  current_scene = std::make_shared<Title>();
   current_scene->SetManagerRef(this);
   previous_scene = nullptr;
 }
