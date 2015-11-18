@@ -1,11 +1,11 @@
 #pragma once
 
-class FoodObjcet{
+class FoodObject{
 private:
 
 public:
-	FoodObjcet();
-	~FoodObjcet();
+	FoodObject();
+	~FoodObject();
 
 	void AddGauge(const int _add, int *_gauge);
 	virtual void Update() = 0;
