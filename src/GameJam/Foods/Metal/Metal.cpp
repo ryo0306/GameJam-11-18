@@ -20,6 +20,10 @@ void Metal::Draw(){
 		box.size.x(), box.size.y(), Color::white);
 }
 
+Box Metal::GetBox(){
+  return box;
+}
+
 void Metal::SetBox(Box box)
 {
   this->box = box;

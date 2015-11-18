@@ -20,6 +20,10 @@ void Vegetables::Draw(){
 
 }
 
+Box Vegetables::GetBox(){
+  return box;
+}
+
 void Vegetables::SetBox(Box box)
 {
   this->box = box;

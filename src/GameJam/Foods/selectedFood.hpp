@@ -10,6 +10,7 @@ private:
   FoodVariation food_variation;
 
   bool active;
+  int counter;
 
 public:
   SelectedFood(Position pos, FoodType type, FoodVariation variation);

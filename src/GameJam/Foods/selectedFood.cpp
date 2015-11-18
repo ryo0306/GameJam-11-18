@@ -17,6 +17,8 @@ SelectedFood::SelectedFood(Position pos, FoodType type, FoodVariation variation)
   food_type = type;
   food_variation = variation;
   active = true;
+
+  counter = 0;
 }
 
 bool SelectedFood::IsActive(){
@@ -24,24 +26,25 @@ bool SelectedFood::IsActive(){
 }
 
 void SelectedFood::Update(){
-  static int counter;
-  if (counter > 60){
+  if (counter >= 60){
     active = false;
   }
 
-  switch (init_position){
-  case Position::Left:
-    food_box.pos.x() += 250.0f / 60.0f;
-    food_box.pos.y() += 400.0f / 60.0f;
-    break;
-  case Position::Middle:
-    food_box.pos.y() += 400.0f / 60.0f;
-    break;
-  case Position::Right:
-    food_box.pos.x() -= 250.0f / 60.0f;
-    food_box.pos.y() += 400.0f / 60.0f;
-    break;
+  if (init_position == Position::Left){
+    food_box.pos.x() += (250.0f / 60.0f);
+    food_box.pos.y() += (400.0f / 60.0f);
   }
+
+  if (init_position == Position::Middle){
+    food_box.pos.y() += (400.0f / 60.0f);
+  }
+    
+  if (init_position == Position::Right){
+    food_box.pos.x() -= (250.0f / 60.0f);
+    food_box.pos.y() += (400.0f / 60.0f);
+  }
+
+  counter++;
 }
 
 void SelectedFood::Draw(){

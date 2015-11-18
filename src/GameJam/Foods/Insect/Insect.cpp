@@ -18,6 +18,10 @@ void Insect::Draw(){
               box.size.x(), box.size.y(), Color::blue);
 }
 
+Box Insect::GetBox(){
+  return box;
+}
+
 void Insect::SetBox(Box box)
 {
   this->box = box;
