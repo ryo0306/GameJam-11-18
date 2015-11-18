@@ -3,9 +3,13 @@
 
 int main() {
   App::Get();
+  SceneManager manager;
   while (App::Get().isOpen()) {
     App::Get().begin();
     
+    manager.Update();
+    manager.Draw();
+
     App::Get().end();
   }
 }
