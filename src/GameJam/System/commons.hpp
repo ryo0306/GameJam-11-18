@@ -9,6 +9,7 @@
 #include "../../lib/framework.hpp"
 #include "envSingleton.hpp"
 #include "../Utility/Collision/collision.hpp"
+#include "../Utility/randomSingleton.hpp"
 #include "Resource Manager/resourceManager.hpp"
 
 enum class Position{

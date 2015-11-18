@@ -12,5 +12,6 @@ public:
 	virtual void Update();
 	virtual void Draw();
   virtual void SetBox(Box box);
-
+  virtual FoodType GetFoodType() override;
+  virtual FoodVariation GetFoodVariation() override;
 };

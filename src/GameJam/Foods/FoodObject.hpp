@@ -6,6 +6,9 @@ private:
 
 protected:
   Box box;
+  FoodType type;
+  FoodVariation variation;
+
 public:
 	FoodObject();
 	~FoodObject();
@@ -14,4 +17,6 @@ public:
 	virtual void Update() = 0;
 	virtual void Draw() = 0;
   virtual void SetBox(Box box) = 0;
+  virtual FoodType GetFoodType() = 0;
+  virtual FoodVariation GetFoodVariation() = 0;
 };

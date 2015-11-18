@@ -1,9 +1,8 @@
 #include "Vegetables.hpp"
 
 Vegetables::Vegetables(){
-
-	//ResourceManager::Texture().Insert("res/texture.pig")
-
+  type = FoodType::Vegetable;
+  variation = (FoodVariation)Rand::Get()(0, 2);
 }
 
 Vegetables::~Vegetables(){
@@ -24,4 +23,12 @@ void Vegetables::Draw(){
 void Vegetables::SetBox(Box box)
 {
   this->box = box;
+}
+
+FoodType Vegetables::GetFoodType(){
+  return type;
+}
+
+FoodVariation Vegetables::GetFoodVariation(){
+  return variation;
 }
