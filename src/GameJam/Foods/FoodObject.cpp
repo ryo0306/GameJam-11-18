@@ -1,13 +1,13 @@
 #include "FoodObject.hpp"
 
-FoodObjcet::FoodObjcet(){
+FoodObject::FoodObject(){
 
 }
 
-FoodObjcet::~FoodObjcet(){
+FoodObject::~FoodObject(){
 
 }
 
-void FoodObjcet::AddGauge(const int _add, int *_gauge){
+void FoodObject::AddGauge(const int _add, int *_gauge){
 	_gauge += _add;
 }
