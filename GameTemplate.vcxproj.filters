@@ -165,6 +165,9 @@
     <ClInclude Include="src\GameJam\Foods\Insect\Insect.hpp">
       <Filter>GameJam\Foods\Insect</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameJam\System\structs.hpp">
+      <Filter>GameJam\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\appEnv.cpp">

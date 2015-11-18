@@ -7,9 +7,4 @@
 #include "../../lib/framework.hpp"
 #include "envSingleton.hpp"
 #include "../Utility/Collision/collision.hpp"
-#include "Resource Manager\resourceManager.hpp"
-
-struct Box{
-	Vec2f pos;
-	Vec2f size;
-};
+#include "Resource Manager/resourceManager.hpp"

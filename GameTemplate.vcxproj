@@ -25,6 +25,7 @@
     <ClInclude Include="src\GameJam\System\Resource Manager\resourceManager.hpp" />
     <ClInclude Include="src\GameJam\System\Scene Manager\scene.hpp" />
     <ClInclude Include="src\GameJam\System\Scene Manager\sceneManager.hpp" />
+    <ClInclude Include="src\GameJam\System\structs.hpp" />
     <ClInclude Include="src\GameJam\Utility\Collision\collision.hpp" />
     <ClInclude Include="src\lib\appEnv.hpp" />
     <ClInclude Include="src\lib\audio.hpp" />
