@@ -1,11 +1,10 @@
 #include "../FoodObject.hpp"
-#include "../../../lib/framework.hpp"
+#include "../../System/commons.hpp"
 
 
 class Vegetables :public FoodObject{
 private:
-	Vec2f pos;
-	Texture texture;
+	Box box;
 
 public:
 	Vegetables();
