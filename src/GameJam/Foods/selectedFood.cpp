@@ -24,15 +24,15 @@ void SelectedFood::Draw(){
     DrawVegetable(food_variation);
     break;
   case FoodType::Metal:
-    DrawMetal(food_variation);
+    //DrawMetal(food_variation);
     break;
   case FoodType::Insect:
-    DrawInsect(food_variation);
+    //DrawInsect(food_variation);
     break;
   }
 }
 
-void SelectedFood::DrawVegetable(int variation){
+void SelectedFood::DrawVegetable(FoodVariation variation){
   switch(food_variation){
   case FoodVariation::Var1:
     break;

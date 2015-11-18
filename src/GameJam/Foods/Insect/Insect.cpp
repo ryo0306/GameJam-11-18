@@ -13,6 +13,11 @@ void Insect::Update(){
 }
 
 void Insect::Draw(){
-	drawFillBox(box.pos.x(), box.pos.y(),
-		box.size.x(), box.size.y(), Color::blue);
+  drawFillBox(box.pos.x(), box.pos.y(),
+              box.size.x(), box.size.y(), Color::blue);
+}
+
+void Insect::SetBox(Box box)
+{
+  this->box = box;
 }

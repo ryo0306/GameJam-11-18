@@ -15,6 +15,6 @@ public:
   void Draw();
 
   void DrawVegetable(FoodVariation variation);
-  void DrawMetal(FoodVariation variation);
-  void DrawInsect(FoodVariation variation);
+  //void DrawMetal(FoodVariation variation);
+  //void DrawInsect(FoodVariation variation);
 };

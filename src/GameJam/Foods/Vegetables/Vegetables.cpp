@@ -1,11 +1,9 @@
 #include "Vegetables.hpp"
 
 Vegetables::Vegetables(){
-<<<<<<< HEAD
+
 	//ResourceManager::Texture().Insert("res/texture.pig")
-=======
-	//ResourceManager::Texture().Insert("res/texture.pig",)
->>>>>>> e01371cf529f544ae89ae4a970a708052134cbaa
+
 }
 
 Vegetables::~Vegetables(){
@@ -21,4 +19,9 @@ void Vegetables::Draw(){
 		box.size.x(), box.size.y(), Color::green);
 
 
+}
+
+void Vegetables::SetBox(Box box)
+{
+  this->box = box;
 }

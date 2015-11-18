@@ -1,9 +1,7 @@
 #pragma once
 #include "lib/framework.hpp"
 #include <ctime>
-#define FOODTEXTURESIZE 100
-#define FOODTOFOODLENGTH 200
-#define TIMELIMITMAX 600
+
 
 class Food
 {
@@ -62,10 +60,7 @@ class GameManager
 private:
 
 
-  Random rand;
-  Food* food[3];
-  int time_limit = TIMELIMITMAX;
-  int pattern = rand(1,6);
+
 public:
 
   GameManager()
@@ -74,8 +69,5 @@ public:
   }
   void Update();
   void Draw();   //DEBUG
-  void Shuffle();
-  void Move();
-  void Reset();
-  void SetFoodPos();
+
 };

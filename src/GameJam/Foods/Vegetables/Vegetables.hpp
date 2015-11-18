@@ -4,7 +4,7 @@
 
 class Vegetables :public FoodObject{
 private:
-	Box box;
+
 
 public:
 	Vegetables();
@@ -12,4 +12,5 @@ public:
 
 	virtual void Update();
 	virtual void Draw();
+  virtual void SetBox(Box box);
 };

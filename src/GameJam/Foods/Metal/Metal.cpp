@@ -18,3 +18,8 @@ void Metal::Draw(){
 	drawFillBox(box.pos.x(), box.pos.y(),
 		box.size.x(), box.size.y(), Color::white);
 }
+
+void Metal::SetBox(Box box)
+{
+  this->box = box;
+}
