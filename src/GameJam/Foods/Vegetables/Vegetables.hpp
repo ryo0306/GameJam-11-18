@@ -2,17 +2,15 @@
 #include "../../../lib/framework.hpp"
 
 
-class Vegetables :public FoodObjcet{
+class Vegetables :public FoodObject{
 private:
-	Vec2f m_pos;
-	int m_AddGauge;
-	Texture m_Texture;
+	Vec2f pos;
+	Texture texture;
 
 public:
 	Vegetables();
 	~Vegetables();
 
-	Texture GetTexture();
 	virtual void Update();
 	virtual void Draw();
 };
