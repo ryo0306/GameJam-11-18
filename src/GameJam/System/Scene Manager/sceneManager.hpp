@@ -2,6 +2,7 @@
 
 #include <memory>
 #include "scene.hpp"
+#include "../../Scenes/Title/title.hpp"
 
 class SceneManager{
 private:
