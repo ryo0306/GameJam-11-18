@@ -4,12 +4,17 @@
 
 class SelectedFood{
 private:
-  Box box; //Change to a Better Name
-  FoodType type;
+  Box food_box;
+  Position init_position;
+  FoodType food_type;
   FoodVariation food_variation;
 
+  bool active;
+
 public:
-  SelectedFood(Position pos, FoodType type, FoodVariation food_variation);
+  SelectedFood(Position pos, FoodType type, FoodVariation variation);
+
+  bool IsActive();
 
   void Update();
   void Draw();
