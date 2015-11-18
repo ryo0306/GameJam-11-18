@@ -14,6 +14,9 @@
     <ClInclude Include="src\GameJam\Scenes\Game Main\gameMain.hpp" />
     <ClInclude Include="src\GameJam\Scenes\Result\result.hpp" />
     <ClInclude Include="src\GameJam\Scenes\Title\title.hpp" />
+    <ClInclude Include="src\GameJam\System\commons.hpp" />
+    <ClInclude Include="src\GameJam\System\envSingleton.hpp" />
+    <ClInclude Include="src\GameJam\System\picojson.h" />
     <ClInclude Include="src\GameJam\System\Scene Manager\scene.hpp" />
     <ClInclude Include="src\GameJam\System\Scene Manager\sceneManager.hpp" />
     <ClInclude Include="src\lib\appEnv.hpp" />

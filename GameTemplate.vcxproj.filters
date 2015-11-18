@@ -117,6 +117,15 @@
     <ClInclude Include="src\GameJam\Scenes\Title\title.hpp">
       <Filter>GameJam\Scenes\Title</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameJam\System\picojson.h">
+      <Filter>GameJam\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameJam\System\commons.hpp">
+      <Filter>GameJam\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameJam\System\envSingleton.hpp">
+      <Filter>GameJam\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\appEnv.cpp">
