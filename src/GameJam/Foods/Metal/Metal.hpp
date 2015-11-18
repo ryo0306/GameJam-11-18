@@ -4,7 +4,6 @@
 
 class Metal :public FoodObject{
 private:
-	Box box;
 
 public:
 	Metal();
@@ -12,5 +11,6 @@ public:
 
 	virtual void Update();
 	virtual void Draw();
+  virtual void SetBox(Box box);
 
 };
