@@ -1,11 +1,10 @@
 #pragma once
-#include "../../../lib/framework.hpp"
 #include "../FoodObject.hpp"
+#include "../../System/commons.hpp"
 
 class Insect :public FoodObject{
 private:
-	Vec2f pos;
-	Texture texture;
+	Box box;
 
 public:
 	Insect();
