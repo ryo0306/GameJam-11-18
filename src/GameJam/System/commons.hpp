@@ -7,3 +7,4 @@
 #include "../../lib/framework.hpp"
 #include "envSingleton.hpp"
 #include "../Utility/Collision/collision.hpp"
+#include "Resource Manager/resourceManager.hpp"

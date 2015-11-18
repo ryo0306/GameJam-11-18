@@ -1,15 +1,11 @@
 #include "Vegetables.hpp"
 
 Vegetables::Vegetables(){
-
+	//ResourceManager::Texture().Insert("res/texture.pig")
 }
 
 Vegetables::~Vegetables(){
 
-}
-
-Texture Vegetables::GetTexture(){
-	return m_Texture;
 }
 
 void Vegetables::Update(){
@@ -17,5 +13,8 @@ void Vegetables::Update(){
 }
 
 void Vegetables::Draw(){
-	drawTextureBox(m_pos.x(), m_pos.y(), 128, 128, 0, 0, 128, 128, m_Texture);
+	drawFillBox(box.pos.x(), box.pos.y(),
+		box.size.x(), box.size.y(), Color::green);
+
+
 }

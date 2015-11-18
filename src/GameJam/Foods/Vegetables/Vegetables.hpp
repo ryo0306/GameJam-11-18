@@ -1,14 +1,14 @@
-#pragma once
 #include "../FoodObject.hpp"
 #include "../../System/commons.hpp"
 
-class Insect :public FoodObject{
+
+class Vegetables :public FoodObject{
 private:
 	Box box;
 
 public:
-	Insect();
-	~Insect();
+	Vegetables();
+	~Vegetables();
 
 	virtual void Update();
 	virtual void Draw();

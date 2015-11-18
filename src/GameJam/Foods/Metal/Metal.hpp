@@ -1,18 +1,15 @@
 #pragma once
 #include "../FoodObject.hpp"
-#include "../../../lib/framework.hpp"
+#include "../../System/commons.hpp"
 
-class Metal :public FoodObjcet{
+class Metal :public FoodObject{
 private:
-	Vec2f m_pos;
-	int m_AddGauge;
-	Texture m_Texture;
+	Box box;
 
 public:
 	Metal();
 	~Metal();
 
-	Texture GetTexture();
 	virtual void Update();
 	virtual void Draw();
 

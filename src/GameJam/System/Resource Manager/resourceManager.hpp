@@ -2,6 +2,7 @@
 
 #include <map>
 #include "../../System/commons.hpp"
+#include "resourceKeys.hpp"
 
 namespace hidden{
   class AudioManager{
@@ -25,12 +26,12 @@ namespace hidden{
 
 class ResourceManager{
 public:
-  static hidden::AudioManager Audio(){
+  static hidden::AudioManager& Audio(){
     static hidden::AudioManager audio;
     return audio;
   }
 
-  static hidden::TextureManager Texture(){
+  static hidden::TextureManager& Texture(){
     static hidden::TextureManager texture;
     return texture;
   }
