@@ -1,7 +1,7 @@
 #include "Vegetables.hpp"
 
 Vegetables::Vegetables(){
-	ResourceManager::Texture().Insert("res/texture.pig",)
+	//ResourceManager::Texture().Insert("res/texture.pig",)
 }
 
 Vegetables::~Vegetables(){

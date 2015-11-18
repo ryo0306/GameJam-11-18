@@ -168,6 +168,9 @@
     <ClInclude Include="src\GameJam\System\structs.hpp">
       <Filter>GameJam\System</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameJam\Foods\selectedFood.hpp">
+      <Filter>GameJam\Foods</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\appEnv.cpp">
@@ -260,6 +263,9 @@
     </ClCompile>
     <ClCompile Include="src\GameJam\Foods\Insect\Insect.cpp">
       <Filter>GameJam\Foods\Insect</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameJam\Foods\selectedFood.cpp">
+      <Filter>GameJam\Foods</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
