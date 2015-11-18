@@ -2,6 +2,7 @@
 Debug
 Release
 *.sdf
+*.opensdf
 *.pdb
 *.exe
 *.v12.suo
