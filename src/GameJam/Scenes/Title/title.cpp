@@ -5,5 +5,7 @@ void Title::Update(){
 }
 
 void Title::Draw(){
+  App::Get().bgColor(Color::navy);
+
   
 }

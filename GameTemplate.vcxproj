@@ -19,6 +19,7 @@
     <ClInclude Include="src\GameJam\System\picojson.h" />
     <ClInclude Include="src\GameJam\System\Scene Manager\scene.hpp" />
     <ClInclude Include="src\GameJam\System\Scene Manager\sceneManager.hpp" />
+    <ClInclude Include="src\GameJam\Utility\Collision\collision.hpp" />
     <ClInclude Include="src\lib\appEnv.hpp" />
     <ClInclude Include="src\lib\audio.hpp" />
     <ClInclude Include="src\lib\camera2D.hpp" />
@@ -49,6 +50,7 @@
     <ClCompile Include="src\GameJam\Scenes\Result\result.cpp" />
     <ClCompile Include="src\GameJam\Scenes\Title\title.cpp" />
     <ClCompile Include="src\GameJam\System\Scene Manager\sceneManager.cpp" />
+    <ClCompile Include="src\GameJam\Utility\Collision\collision.cpp" />
     <ClCompile Include="src\lib\appEnv.cpp" />
     <ClCompile Include="src\lib\audio.cpp" />
     <ClCompile Include="src\lib\camera2D.cpp" />
