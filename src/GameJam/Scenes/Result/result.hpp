@@ -18,15 +18,15 @@ private:
   };
 
   Font font = Font("res/meiryo.ttc");
-  Color image = Color::gray;    // 本来はTexture
+  Color image = Color::blue;    // 本来はTexture
   Box title_f = Box{ Vec2f(-300, -400), Vec2f(250, 50) };
   Box retry_f = Box{ Vec2f(80, -400), Vec2f(200, 50) };
   Box background = Box{ Vec2f(-360, -480), Vec2f(720, 960) };
   Box keepout = Box{ Vec2f(-360, 960), Vec2f(720, 960) };
-  int slide_count = 0;     // トイレに駆け込むシーンの切り替え時間
+  int animation_count = 1;     // トイレに駆け込むシーンの切り替え時間
   bool select_active = false;
   Animation animation = Animation::Toilet;
-  float fedinf_a = 0;
+  float fadinf_a = 0;
 
 public:
   Result();
@@ -35,8 +35,8 @@ public:
   void Select();
   void AnimationChange();
   void AnimationUpdate();
-  void FedingOut();
-  void FedingIn();
+  bool FadingOut();
+  bool FadingIn();
   void TimeReset();
 
 };
