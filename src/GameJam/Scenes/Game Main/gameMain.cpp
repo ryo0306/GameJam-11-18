@@ -95,7 +95,7 @@ void GameMain::Draw(){
 
 void GameMain::Reset()
 {
-  pattern = Rand::Get()(1, 6);
+  pattern = rand(1, 6);
   Shuffle();
   time_limit = TIMELIMITMAX;
   food_click_limit = FOODCLICKLIMIT;
