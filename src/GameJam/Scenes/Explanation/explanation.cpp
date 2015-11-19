@@ -11,6 +11,7 @@ void Explanation::Draw(){
 		drawFillBox(return_title_box.pos.x(), return_title_box.pos.y(),
 			return_title_box.size.x(), return_title_box.size.y(), Color::red);
 		if (App::Get().isPushButton(Mouse::LEFT)){
+      ResMed.Get(AudioKey::Select).play();
 			scene_manager->ChangeScene(std::make_shared<Title>());
 		}
 	}

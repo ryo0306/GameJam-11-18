@@ -9,7 +9,7 @@ class Title : public Scene{
 private:
 
 public:
-  Title() = default;
+  Title();
   void Update() override;
   void Draw() override;
 };

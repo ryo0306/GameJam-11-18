@@ -5,7 +5,7 @@
 #include "resourceKeys.hpp"
 
 #define ResTex ResourceManager::Texture()
-#define ResMed ResourceManager::Audio();
+#define ResMed ResourceManager::Audio()
 
 namespace hidden{
   class AudioManager{
@@ -29,7 +29,7 @@ namespace hidden{
 
 class ResourceManager{
 private:
-  ResourceManager();
+  ResourceManager() = default;
 public:
   ResourceManager(ResourceManager&) = delete;
   static hidden::AudioManager& Audio(){

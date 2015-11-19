@@ -13,16 +13,17 @@
 #define FOODTEXTURESIZE 100
 #define FOODTOFOODLENGTH 200
 #define TIMELIMITMAX 600
+#define FOODCLICKLIMIT 5
 
 class GameMain : public Scene{
 private:
   void LoadSettings();
   std::vector<std::shared_ptr<FoodObject>> food;
   std::list<SelectedFood> selected;
+  Box plates[3];
 
-  Random rand;
   int time_limit = TIMELIMITMAX;
-  int pattern = rand(1, 6);
+  int pattern = Rand::Get()(1, 6);
   int food_click_limit = 0;
 
 public:

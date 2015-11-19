@@ -1,7 +1,10 @@
 #pragma once
 
 enum class AudioKey{
-	null,
+	Select,
+  Game,
+  Eating,
+  TimeOut
 };
 
 enum class TextureKey{

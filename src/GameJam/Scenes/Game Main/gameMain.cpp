@@ -6,39 +6,55 @@ GameMain::GameMain(){
   FailCheck(ResTex.Insert("res/gameMain/vegetables.png", TextureKey::Vegetables));
   FailCheck(ResTex.Insert("res/gameMain/metal.png", TextureKey::Metal));
   FailCheck(ResTex.Insert("res/gameMain/insect.png", TextureKey::Insect));
+  FailCheck(ResMed.Insert("res/sound/gameMain.wav", AudioKey::Game));
+  FailCheck(ResMed.Insert("res/sound/eating.wav", AudioKey::Eating));
+  FailCheck(ResMed.Insert("res/sound/time_out.wav", AudioKey::TimeOut));
+  plates[0] = Box{ Vec2f(-325, -320), Vec2f(150, 150) };
+  plates[1] = Box{ Vec2f(-75, -320), Vec2f(150, 150) };
+  plates[2] = Box{ Vec2f(175, -320), Vec2f(150, 150) };
 }
 
 void GameMain::Update(){
+  if (!ResMed.Get(AudioKey::Game).isPlaying()){
+    ResMed.Get(AudioKey::Game).play();
+    ResMed.Get(AudioKey::Game).looping(true);
+  }
   if (food_click_limit == 0){
     if (Collision::MouseToBox(App::Get().mousePosition(), food[0]->GetBox())){
       if (App::Get().isPushButton(Mouse::LEFT)){
+        ResMed.Get(AudioKey::Eating).play();
         selected.push_back(SelectedFood(Position::Left, food[0]->GetFoodType(), food[0]->GetFoodVariation()));
         Reset();
       }
     }
-    else if (App::Get().isPushKey(GLFW_KEY_LEFT_SHIFT)){
+    else if (App::Get().isPushKey(GLFW_KEY_LEFT_SHIFT) || App::Get().isPushKey('Z')){
+      ResMed.Get(AudioKey::Eating).play();
       selected.push_back(SelectedFood(Position::Left, food[0]->GetFoodType(), food[0]->GetFoodVariation()));
       Reset();
     }
 
     if (Collision::MouseToBox(App::Get().mousePosition(), food[1]->GetBox())){
       if (App::Get().isPushButton(Mouse::LEFT)){
+        ResMed.Get(AudioKey::Eating).play();
         selected.push_back(SelectedFood(Position::Middle, food[1]->GetFoodType(), food[1]->GetFoodVariation()));
         Reset();
       }
     }
-    else if (App::Get().isPushKey(GLFW_KEY_SPACE)){
+    else if (App::Get().isPushKey(GLFW_KEY_SPACE) || App::Get().isPushKey('B')){
+      ResMed.Get(AudioKey::Eating).play();
       selected.push_back(SelectedFood(Position::Middle, food[1]->GetFoodType(), food[1]->GetFoodVariation()));
       Reset();
     }
 
     if (Collision::MouseToBox(App::Get().mousePosition(), food[2]->GetBox())){
       if (App::Get().isPushButton(Mouse::LEFT) || App::Get().isPushKey(GLFW_KEY_RIGHT_SHIFT)){
+        ResMed.Get(AudioKey::Eating).play();
         selected.push_back(SelectedFood(Position::Right, food[2]->GetFoodType(), food[2]->GetFoodVariation()));
         Reset();
       }
     }
-    else if (App::Get().isPushKey(GLFW_KEY_RIGHT_SHIFT)){
+    else if (App::Get().isPushKey(GLFW_KEY_RIGHT_SHIFT) || App::Get().isPushKey(GLFW_KEY_SLASH)){
+      ResMed.Get(AudioKey::Eating).play();
       selected.push_back(SelectedFood(Position::Right, food[2]->GetFoodType(), food[2]->GetFoodVariation()));
       Reset();
     }
@@ -64,6 +80,8 @@ void GameMain::Draw(){
 
   for (int i = 0; i < 3; i++)
   {
+    drawTextureBox(plates[i].pos.x(), plates[i].pos.y(), plates[i].size.x(), plates[i].size.y(),
+      0, 0, 512, 512, ResTex.Get(TextureKey::Plate));
     food[i]->Draw();
   }
 
@@ -74,10 +92,10 @@ void GameMain::Draw(){
 
 void GameMain::Reset()
 {
-  pattern = rand(1, 6);
+  pattern = Rand::Get()(1, 6);
   Shuffle();
   time_limit = TIMELIMITMAX;
-  food_click_limit = 10;
+  food_click_limit = FOODCLICKLIMIT;
 }
 
 void GameMain::Shuffle()
@@ -128,9 +146,9 @@ void GameMain::Shuffle()
 
 void GameMain::SetFoodPos()
 {
-  food[0]->SetBox(Box{ Vec2f(-300, -300), Vec2f(100, 100) });
-  food[1]->SetBox(Box{ Vec2f(-50, -300), Vec2f(100, 100) });
-  food[2]->SetBox(Box{ Vec2f(200, -300), Vec2f(100, 100) });
+  food[0]->SetBox(Box{ Vec2f(-325, -300), Vec2f(150, 150) });
+  food[1]->SetBox(Box{ Vec2f(-75, -300), Vec2f(150, 150) });
+  food[2]->SetBox(Box{ Vec2f(175, -300), Vec2f(150, 150) });
 }
 
 void GameMain::UpdateList(){

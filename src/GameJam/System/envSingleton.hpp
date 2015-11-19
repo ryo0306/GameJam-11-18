@@ -3,7 +3,7 @@
 
 class App{
 private:
-  App();
+  App() = default;
 public:
   App(App&) = delete;
   static AppEnv& Get(){

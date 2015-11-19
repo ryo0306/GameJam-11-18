@@ -5,12 +5,12 @@
 
 class Rand{
 private:
-  Rand();
+  Rand() = default;
 public:
   Rand(Rand&) = delete;
   static Random& Get(){
     static Random rand;
-    rand.setSeed(time(nullptr));
+    rand.setSeed((u_int)time(nullptr));
     return rand;
   }
 };
