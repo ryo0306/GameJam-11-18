@@ -15,6 +15,13 @@ GameMain::GameMain(){
 }
 
 void GameMain::Update(){
+  if (App::Get().isPushKey('0')){
+    ResMed.Get(AudioKey::Game).stop();
+    ResMed.Get(AudioKey::TimeOut).play();
+    scene_manager->ChangeScene(std::make_shared<Result>());
+    return;
+  }
+
   if (!ResMed.Get(AudioKey::Game).isPlaying()){
     ResMed.Get(AudioKey::Game).play();
     ResMed.Get(AudioKey::Game).looping(true);
@@ -73,10 +80,6 @@ void GameMain::Update(){
 
 void GameMain::Draw(){
   App::Get().bgColor(Color::maroon);
-
-  if (App::Get().isPushKey('0')){
-    scene_manager->ChangeScene(std::make_shared<Result>());
-  }
 
   for (int i = 0; i < 3; i++)
   {
