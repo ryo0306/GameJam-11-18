@@ -3,6 +3,7 @@
 GameMain::GameMain(){
   Reset();
   FailCheck(ResTex.Insert("res/gameMain/tomoko.png", TextureKey::GameTomoko));
+  FailCheck(ResTex.Insert("res/gameMain/numbers.png", TextureKey::Numbers));
   FailCheck(ResTex.Insert("res/gameMain/plate.png", TextureKey::Plate));
   FailCheck(ResTex.Insert("res/gameMain/vegetables.png", TextureKey::Vegetables));
   FailCheck(ResTex.Insert("res/gameMain/metal.png", TextureKey::Metal));
