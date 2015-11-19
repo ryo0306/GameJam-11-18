@@ -7,7 +7,6 @@ Result::Result()
 }
 
 void Result::Update(){
-
   if (animation_count % 180 == 0 || App::Get().isPushButton(Mouse::LEFT))
   {
     AnimationChange();
@@ -16,6 +15,8 @@ void Result::Update(){
   AnimationUpdate();
 
   animation_count++;
+  if (select_active)
+    Select();
 }
 
 void Result::Draw(){
@@ -30,6 +31,7 @@ void Result::Draw(){
   if (animation == Animation::Select)
   {
     drawTextureBox(-200, -300, 600, 600, 0, 0, 1024, 1024, ResTex.Get(TextureKey::ResultInsect));
+
     font.draw("タイトルへ", title_f.pos, Color::white);
     font.draw("リトライ", retry_f.pos, Color::white);
   }
