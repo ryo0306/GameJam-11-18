@@ -22,8 +22,9 @@ private:
   std::list<SelectedFood> selected;
   Box plates[3];
 
+  Random rand;
   int time_limit = TIMELIMITMAX;
-  int pattern = Rand::Get()(1, 6);
+  int pattern = rand(1, 6);
   int food_click_limit = 0;
 
 public:
