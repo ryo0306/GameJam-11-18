@@ -180,6 +180,9 @@
     <ClInclude Include="src\GameJam\Scenes\Explanation\explanation.hpp">
       <Filter>GameJam\Scenes\Explanation</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameJam\Foods\resultData.hpp">
+      <Filter>GameJam\Foods</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\appEnv.cpp">

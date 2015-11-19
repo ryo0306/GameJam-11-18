@@ -11,6 +11,7 @@ enum class AudioKey{
 enum class TextureKey{
   Title,
   GameTomoko,
+  GameBG,
   Numbers,
 	Plate,
   Vegetables,
@@ -20,8 +21,4 @@ enum class TextureKey{
   ResultToilet,
   ResultInsect,
   ResultMetal
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 08671f65a986628f028638fb508941b65e363961

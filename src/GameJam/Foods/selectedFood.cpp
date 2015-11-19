@@ -3,13 +3,13 @@
 SelectedFood::SelectedFood(Position pos, FoodType type, FoodVariation variation){
   switch (pos){
   case Position::Left:
-    food_box = { Vec2f(-325, -300), Vec2f(150, 150) };
+    food_box = { Vec2f(-325, -400), Vec2f(150, 150) };
     break;
   case Position::Middle:
-    food_box = { Vec2f(-75, -300), Vec2f(150, 150) };
+    food_box = { Vec2f(-75, -400), Vec2f(150, 150) };
     break;
   case Position::Right:
-    food_box = { Vec2f(175, -300), Vec2f(150, 150) };
+    food_box = { Vec2f(175, -400), Vec2f(150, 150) };
     break;
   }
 
@@ -32,16 +32,16 @@ void SelectedFood::Update(){
 
   if (init_position == Position::Left){
     food_box.pos.x() += (250.0f / 60.0f);
-    food_box.pos.y() += (400.0f / 60.0f);
+    food_box.pos.y() += (450.0f / 60.0f);
   }
 
   if (init_position == Position::Middle){
-    food_box.pos.y() += (400.0f / 60.0f);
+    food_box.pos.y() += (450.0f / 60.0f);
   }
     
   if (init_position == Position::Right){
     food_box.pos.x() -= (250.0f / 60.0f);
-    food_box.pos.y() += (400.0f / 60.0f);
+    food_box.pos.y() += (450.0f / 60.0f);
   }
 
   counter++;

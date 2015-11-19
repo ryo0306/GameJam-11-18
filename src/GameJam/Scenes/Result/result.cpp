@@ -6,10 +6,7 @@ Result::Result()
   FailCheck(ResTex.Insert("res/result/door.png", TextureKey::ResultToilet));
   FailCheck(ResTex.Insert("res/result/insect.png", TextureKey::ResultInsect));
   FailCheck(ResMed.Insert("res/sound/result.wav", AudioKey::Result));
-<<<<<<< HEAD
-=======
-  TypeDecision(/*struct*/);
->>>>>>> 08671f65a986628f028638fb508941b65e363961
+  //TypeDecision(/*struct*/);
 }
 
 void Result::Update(){
@@ -113,13 +110,9 @@ void Result::AnimationUpdate()
     }
     break;
   case Animation::Select:
-<<<<<<< HEAD
     if (!ResMed.Get(AudioKey::Result).isPlaying()){
       ResMed.Get(AudioKey::Result).play();
     }
-=======
-  
->>>>>>> 08671f65a986628f028638fb508941b65e363961
     if (FadingIn())
     {
       Select();
