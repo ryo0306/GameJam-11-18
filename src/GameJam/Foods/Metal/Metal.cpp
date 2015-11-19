@@ -1,7 +1,8 @@
 #include "Metal.hpp"
 
 Metal::Metal(){
-	//ResourceManager::Texture().Insert("res/texture.png", (int)TextureKey::Metal);
+  type = FoodType::Metal;
+  variation = (FoodVariation)Rand::Get()(0, 2);
 }
 
 Metal::~Metal(){
@@ -19,7 +20,19 @@ void Metal::Draw(){
 		box.size.x(), box.size.y(), Color::white);
 }
 
+Box Metal::GetBox(){
+  return box;
+}
+
 void Metal::SetBox(Box box)
 {
   this->box = box;
+}
+
+FoodType Metal::GetFoodType(){
+  return type;
+}
+
+FoodVariation Metal::GetFoodVariation(){
+  return variation;
 }

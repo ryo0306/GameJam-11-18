@@ -4,44 +4,68 @@ GameMain::GameMain(){
   Reset();
 }
 
-void GameMain::LoadSettings(){
-  std::fstream stream("settings.json");
-  if (!stream.is_open()) return;
-  stream >> this->settings;
-  assert(picojson::get_last_error().empty());
-}
-
 void GameMain::Update(){
+  if (food_click_limit == 0){
+    if (Collision::MouseToBox(App::Get().mousePosition(), food[0]->GetBox())){
+      if (App::Get().isPushButton(Mouse::LEFT)){
+        selected.push_back(SelectedFood(Position::Left, food[0]->GetFoodType(), food[0]->GetFoodVariation()));
+        Reset();
+      }
+    }
+    else if (App::Get().isPushKey(GLFW_KEY_LEFT_SHIFT)){
+      selected.push_back(SelectedFood(Position::Left, food[0]->GetFoodType(), food[0]->GetFoodVariation()));
+      Reset();
+    }
 
-  if (time_limit <= 0)
-  {
-    Move();
-    Reset();
+    if (Collision::MouseToBox(App::Get().mousePosition(), food[1]->GetBox())){
+      if (App::Get().isPushButton(Mouse::LEFT)){
+        selected.push_back(SelectedFood(Position::Middle, food[1]->GetFoodType(), food[1]->GetFoodVariation()));
+        Reset();
+      }
+    }
+    else if (App::Get().isPushKey(GLFW_KEY_SPACE)){
+      selected.push_back(SelectedFood(Position::Middle, food[1]->GetFoodType(), food[1]->GetFoodVariation()));
+      Reset();
+    }
+
+    if (Collision::MouseToBox(App::Get().mousePosition(), food[2]->GetBox())){
+      if (App::Get().isPushButton(Mouse::LEFT) || App::Get().isPushKey(GLFW_KEY_RIGHT_SHIFT)){
+        selected.push_back(SelectedFood(Position::Right, food[2]->GetFoodType(), food[2]->GetFoodVariation()));
+        Reset();
+      }
+    }
+    else if (App::Get().isPushKey(GLFW_KEY_RIGHT_SHIFT)){
+      selected.push_back(SelectedFood(Position::Right, food[2]->GetFoodType(), food[2]->GetFoodVariation()));
+      Reset();
+    }
   }
 
-  //TODO:ŠÖ”‰»
-  time_limit--;
+  for (auto& itr : selected){
+    itr.Update();
+  }
+
+  UpdateList();
+
+  if (food_click_limit > 0){
+    food_click_limit--;
+  }
 }
 
 void GameMain::Draw(){
-  App::Get().bgColor(Color::olive);
-  /*Box test_box{ Vec2f(-200, -300), Vec2f(400, 200) };
-  if (Collision::MouseToBox(App::Get().mousePosition(), test_box)){
-    drawFillBox(test_box.pos.x(), test_box.pos.y(),
-      test_box.size.x(), test_box.size.y(), Color::red);
-    if (App::Get().isPushButton(Mouse::LEFT)){
-      scene_manager->ChangeScene(std::make_shared<Result>());
-    }
+  App::Get().bgColor(Color::maroon);
+
+  if (App::Get().isPushKey('0')){
+    scene_manager->ChangeScene(std::make_shared<Result>());
   }
-  else{
-    drawFillBox(test_box.pos.x(), test_box.pos.y(),
-      test_box.size.x(), test_box.size.y(), Color::white);
-  }*/
 
   // food‚Ì•`‰æ
   for (int i = 0; i < 3; i++)
   {
     food[i]->Draw();
+  }
+
+  for (auto itr : selected){
+    itr.Draw();
   }
 }
 
@@ -51,6 +75,7 @@ void GameMain::Reset()
   pattern = rand(1, 6);
   Shuffle();
   time_limit = TIMELIMITMAX;
+  food_click_limit = 10;
 }
 
 // ‚±‚ê‚ð‚·‚é‚ñ‚¾‚Á‚½‚çˆÊ’u‚ð
@@ -110,5 +135,22 @@ void GameMain::Move()
   for (int i = 0; i < 3; i++)
   {
 
+  }
+}
+
+void GameMain::UpdateList(){
+  std::list<SelectedFood>::iterator itr = selected.begin();
+
+  if (selected.size() > 1){
+    for (itr; itr != selected.end(); itr++){
+      if (!itr->IsActive()){
+        itr = selected.erase(itr);
+      }
+    }
+  }
+  else{
+    if (!itr->IsActive()){
+      selected.clear();
+    }
   }
 }

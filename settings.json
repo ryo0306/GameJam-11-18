@@ -1,3 +1,6 @@
-{ 
-    "Test Json Variable" :  10
+{
+    "Settings": {
+        "Food Click Limit": 10,
+        "Time Limit": 10
+    }
 }

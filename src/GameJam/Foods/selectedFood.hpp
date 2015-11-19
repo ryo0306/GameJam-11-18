@@ -10,6 +10,7 @@ private:
   FoodVariation food_variation;
 
   bool active;
+  int counter;
 
 public:
   SelectedFood(Position pos, FoodType type, FoodVariation variation);
@@ -20,6 +21,6 @@ public:
   void Draw();
 
   void DrawVegetable(FoodVariation variation);
-  //void DrawMetal(FoodVariation variation);
-  //void DrawInsect(FoodVariation variation);
+  void DrawMetal(FoodVariation variation);
+  void DrawInsect(FoodVariation variation);
 };
