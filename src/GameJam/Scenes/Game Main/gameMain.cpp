@@ -85,36 +85,40 @@ void GameMain::Shuffle()
   switch (pattern)
   {
   case 1:
-    food[0] = new Vegetables();
-    food[1] = new Metal();
-    food[2] = new Insect();
+    food.clear();
+    food.emplace_back(std::make_shared<Vegetables>());
+    food.emplace_back(std::make_shared<Metal>());
+    food.emplace_back(std::make_shared<Insect>());
     break;
   case 2:
-    food[0] = new Vegetables();
-    food[1] = new Insect();
-    food[2] = new Metal();
+    food.clear();
+    food.emplace_back(std::make_shared<Vegetables>());
+    food.emplace_back(std::make_shared<Insect>());
+    food.emplace_back(std::make_shared<Metal>());
     break;
   case 3:
-    food[0] = new Insect();
-    food[1] = new Vegetables();
-    food[2] = new Metal();
+    food.clear();
+    food.emplace_back(std::make_shared<Insect>());
+    food.emplace_back(std::make_shared<Vegetables>());
+    food.emplace_back(std::make_shared<Metal>());
     break;
   case 4:
-    food[0] = new Insect();
-    food[1] = new Metal();
-    food[2] = new Vegetables();
+    food.clear();
+    food.emplace_back(std::make_shared<Insect>());
+    food.emplace_back(std::make_shared<Metal>());
+    food.emplace_back(std::make_shared<Vegetables>());
     break;
   case 5:
-    food[0] = new Metal();
-    food[1] = new Insect();
-    food[2] = new Vegetables();
+    food.clear();
+    food.emplace_back(std::make_shared<Metal>());
+    food.emplace_back(std::make_shared<Insect>());
+    food.emplace_back(std::make_shared<Vegetables>());
     break;
   case 6:
-    food[0] = new Metal();
-    food[1] = new Vegetables();
-    food[2] = new Insect();
-    break;
-  default:
+    food.clear();
+    food.emplace_back(std::make_shared<Metal>());
+    food.emplace_back(std::make_shared<Vegetables>());
+    food.emplace_back(std::make_shared<Insect>());
     break;
   }
   SetFoodPos();

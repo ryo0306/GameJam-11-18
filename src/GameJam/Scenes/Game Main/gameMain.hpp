@@ -17,11 +17,11 @@
 class GameMain : public Scene{
 private:
   void LoadSettings();
-  //std::vector<std::shared_ptr<FoodObject>> food;
+  std::vector<std::shared_ptr<FoodObject>> food;
   std::list<SelectedFood> selected;
 
   Random rand;
-  FoodObject* food[3];
+  //FoodObject* food[3];
   int time_limit = TIMELIMITMAX;
   int pattern = rand(1, 6);
   int food_click_limit = 0;
