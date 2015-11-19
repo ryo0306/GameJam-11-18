@@ -17,6 +17,14 @@ private:
     Select,
   };
 
+  enum class Type
+  {
+    Insect,
+    Metal,
+    Success,
+    Secret,
+  };
+
   Font font = Font("res/meiryo.ttc");
   Box title_f = Box{ Vec2f(-300, -400), Vec2f(250, 50) };
   Box retry_f = Box{ Vec2f(80, -400), Vec2f(200, 50) };
@@ -37,5 +45,6 @@ public:
   bool FadingOut();
   bool FadingIn();
   void TimeReset();
-
+  void BgmPlay();
+  void TypeDecision(/*struct*/);
 };
