@@ -9,9 +9,14 @@ enum class AudioKey{
 };
 
 enum class TextureKey{
+  Title,
+  GameTomoko,
 	Plate,
   Vegetables,
   Metal,
   Insect,
-  ResultInsect
+  ResultDash,
+  ResultToilet,
+  ResultInsect,
+  ResultMetal
 };

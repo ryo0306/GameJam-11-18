@@ -2,6 +2,7 @@
 
 GameMain::GameMain(){
   Reset();
+  FailCheck(ResTex.Insert("res/gameMain/tomoko.png", TextureKey::GameTomoko));
   FailCheck(ResTex.Insert("res/gameMain/plate.png", TextureKey::Plate));
   FailCheck(ResTex.Insert("res/gameMain/vegetables.png", TextureKey::Vegetables));
   FailCheck(ResTex.Insert("res/gameMain/metal.png", TextureKey::Metal));
@@ -88,6 +89,8 @@ void GameMain::Update(){
 
 void GameMain::Draw(){
   App::Get().bgColor(Color::maroon);
+
+  drawTextureBox(-360, -480, 720, 960, 0, 0, 720, 960, ResTex.Get(TextureKey::GameTomoko));
 
   DisplaiedTimer(time_limit);
 
