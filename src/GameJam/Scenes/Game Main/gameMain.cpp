@@ -12,10 +12,14 @@ GameMain::GameMain(){
   plates[0] = Box{ Vec2f(-325, -320), Vec2f(150, 150) };
   plates[1] = Box{ Vec2f(-75, -320), Vec2f(150, 150) };
   plates[2] = Box{ Vec2f(175, -320), Vec2f(150, 150) };
-  timer_pos[0] = Vec2f(-100, 0);
-  timer_pos[1] = Vec2f(0, 0);
-  timer_pos[2] = Vec2f(100, 0);
-  timer_pos[3] = Vec2f(200, 0);
+  timer_pos[3] = Vec2f(-100, 100);
+  timer_pos[2] = Vec2f(0, 100);
+  timer_pos[1] = Vec2f(100, 100);
+  timer_pos[0] = Vec2f(200, 100);
+  is_game_end = false;
+  is_end = false;
+
+  time_limit = TIMELIMITMAX + ENDWAITTIME;
 }
 
 void GameMain::Update(){
@@ -83,14 +87,23 @@ void GameMain::Update(){
   if (food_click_limit > 0){
     food_click_limit--;
   }
+
   time_limit--;
+  if (time_limit < ENDWAITTIME){
+	  is_game_end = true;
+  }
 }
 
 void GameMain::Draw(){
   App::Get().bgColor(Color::maroon);
 
-  DisplaiedTimer(time_limit);
+  if (is_game_end != true){
+	  DisplaiedTimer(time_limit);
+  }
+  else{
+	  /* "I—¹"‚Ì•¶Žš•\‹L */
 
+  }
   if (App::Get().isPushKey('0')){
     scene_manager->ChangeScene(std::make_shared<Result>());
   }
@@ -111,7 +124,7 @@ void GameMain::Reset()
 {
   pattern = rand(1, 6);
   Shuffle();
-  time_limit = TIMELIMITMAX;
+
   food_click_limit = FOODCLICKLIMIT;
 }
 
@@ -186,23 +199,22 @@ void GameMain::UpdateList(){
 }
 
 void GameMain::DisplaiedTimer(int _time){
-	int time = (_time * 10) / 6;
-	while (time != 0){
+	unsigned int time = (_time * 10) / 6;
+	while (time > 0){
 		time_vector.push_back(time % 10);
 		time /= 10;
 	}
-//	int enpty_time = 4 - time_vector.size();
-	int enpty_time = 4;
+
 	timer_font.size(50);
-	for (int i = 0; i < enpty_time; ++i){
+	for (int i = 0; i != time_vector.size(); ++i){
+		SwitchNomber(time_vector[i], timer_pos[i]);
+	}
+
+	for (int i = 3; i > time_vector.size() - 1; --i){
 		timer_font.draw("0", timer_pos[i], Color::white);
 	}
 
-
-	//for (int i = time_vector.size() - 1; i >= 0; --i){
-	//	SwitchNomber(time_vector[i], timer_pos[i]);
-	//}
-	time_vector.empty();
+	time_vector.clear();
 }
 
 void GameMain::SwitchNomber(int _value,Vec2f _vec){
