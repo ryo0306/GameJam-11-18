@@ -8,6 +8,7 @@
 #include "../../Foods/Insect/Insect.hpp"
 #include "../../Foods/Metal/Metal.hpp"
 #include "../../Foods/Vegetables/Vegetables.hpp"
+#include "../../Foods/resultData.hpp"
 #include <fstream>
 #include <vector>
 
@@ -23,6 +24,7 @@ private:
   std::vector<std::shared_ptr<FoodObject>> food;
   std::list<SelectedFood> selected;
   Box plates[3];
+  ResultData result;
 
   Random rand;
   Font timer_font = Font("res/meiryo.ttc");
@@ -44,4 +46,5 @@ public:
   void UpdateList();
   void DisplayedTimer(int _time);
   void SwitchNomber(int _value,Box _box);
+  void AddFood(FoodType foodtype);
 };

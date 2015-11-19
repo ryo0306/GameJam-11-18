@@ -21,7 +21,7 @@ GameMain::GameMain(){
   timer_pos[0] = Box{ Vec2f(90, 400), Vec2f(60, 60) };
   is_game_end = false;
   is_end = false;
-
+  result = { 0, 0, 0 };
   time_limit = TIMELIMITMAX + ENDWAITTIME;
 }
 
@@ -29,7 +29,7 @@ void GameMain::Update(){
   if (App::Get().isPushKey('0')){
     ResMed.Get(AudioKey::Game).stop();
     ResMed.Get(AudioKey::TimeOut).play();
-    scene_manager->ChangeScene(std::make_shared<Result>());
+    scene_manager->ChangeScene(std::shared_ptr<Result>(new Result(result)));
     return;
   }
 
@@ -42,6 +42,7 @@ void GameMain::Update(){
       if (App::Get().isPushButton(Mouse::LEFT)){
         ResMed.Get(AudioKey::Eating).play();
         selected.push_back(SelectedFood(Position::Left, food[0]->GetFoodType(), food[0]->GetFoodVariation()));
+        AddFood(food[0]->GetFoodType());
         Reset();
       }
     }
@@ -49,6 +50,7 @@ void GameMain::Update(){
     if (App::Get().isPushKey(GLFW_KEY_LEFT_SHIFT) || App::Get().isPushKey('Z')){
       ResMed.Get(AudioKey::Eating).play();
       selected.push_back(SelectedFood(Position::Left, food[0]->GetFoodType(), food[0]->GetFoodVariation()));
+      AddFood(food[0]->GetFoodType());
       Reset();
     }
 
@@ -56,6 +58,7 @@ void GameMain::Update(){
       if (App::Get().isPushButton(Mouse::LEFT)){
         ResMed.Get(AudioKey::Eating).play();
         selected.push_back(SelectedFood(Position::Middle, food[1]->GetFoodType(), food[1]->GetFoodVariation()));
+        AddFood(food[1]->GetFoodType());
         Reset();
       }
     }
@@ -63,6 +66,7 @@ void GameMain::Update(){
     if (App::Get().isPushKey(GLFW_KEY_SPACE) || App::Get().isPushKey('B')){
       ResMed.Get(AudioKey::Eating).play();
       selected.push_back(SelectedFood(Position::Middle, food[1]->GetFoodType(), food[1]->GetFoodVariation()));
+      AddFood(food[1]->GetFoodType());
       Reset();
     }
 
@@ -70,6 +74,7 @@ void GameMain::Update(){
       if (App::Get().isPushButton(Mouse::LEFT) || App::Get().isPushKey(GLFW_KEY_RIGHT_SHIFT)){
         ResMed.Get(AudioKey::Eating).play();
         selected.push_back(SelectedFood(Position::Right, food[2]->GetFoodType(), food[2]->GetFoodVariation()));
+        AddFood(food[2]->GetFoodType());
         Reset();
       }
     }
@@ -77,6 +82,7 @@ void GameMain::Update(){
     if (App::Get().isPushKey(GLFW_KEY_RIGHT_SHIFT) || App::Get().isPushKey(GLFW_KEY_SLASH)){
       ResMed.Get(AudioKey::Eating).play();
       selected.push_back(SelectedFood(Position::Right, food[2]->GetFoodType(), food[2]->GetFoodVariation()));
+      AddFood(food[2]->GetFoodType());
       Reset();
     }
   }
@@ -279,5 +285,21 @@ void GameMain::SwitchNomber(int _value, Box _box){
   default:
     drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
       128, 64, 64, 64, ResTex.Get(TextureKey::Numbers));
+  }
+}
+
+void GameMain::AddFood(FoodType foodtype){
+  switch (foodtype){
+  case FoodType::Vegetable:
+    result.vegetable += 1;
+    break;
+  
+  case FoodType::Metal:
+    result.metal += 1;
+    break;
+
+  case FoodType::Insect:
+    result.insect += 1;
+    break;
   }
 }

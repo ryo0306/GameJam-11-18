@@ -1,12 +1,12 @@
 #include "result.hpp"
 
-Result::Result()
+Result::Result(ResultData result)
 {
   FailCheck(ResTex.Insert("res/result/dash.png", TextureKey::ResultDash));
   FailCheck(ResTex.Insert("res/result/door.png", TextureKey::ResultToilet));
   FailCheck(ResTex.Insert("res/result/insect.png", TextureKey::ResultInsect));
   FailCheck(ResMed.Insert("res/sound/result.wav", AudioKey::Result));
-  //TypeDecision(/*struct*/);
+  this->result = result;
 }
 
 void Result::Update(){

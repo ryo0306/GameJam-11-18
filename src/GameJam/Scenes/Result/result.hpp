@@ -4,6 +4,7 @@
 #include "../Title/title.hpp"
 #include "../../System/commons.hpp"
 #include "../../Utility/Collision/collision.hpp"
+#include "../../Foods/resultData.hpp"
 
 class Result : public Scene{
 private:
@@ -34,9 +35,11 @@ private:
   bool select_active = false;
   Animation animation = Animation::Dash;
   float fadinf_a = 0;
+  ResultData result;
 
 public:
-  Result();
+  Result() = default;
+  explicit Result(ResultData result);
   void Update() override;
   void Draw() override;
   void Select();
