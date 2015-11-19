@@ -1,23 +1,23 @@
 #include "gameMain.hpp"
 
 GameMain::GameMain(){
-  Reset();
-  FailCheck(ResTex.Insert("res/gameMain/tomoko.png", TextureKey::GameTomoko));
-  FailCheck(ResTex.Insert("res/gameMain/numbers.png", TextureKey::Numbers));
-  FailCheck(ResTex.Insert("res/gameMain/plate.png", TextureKey::Plate));
-  FailCheck(ResTex.Insert("res/gameMain/vegetables.png", TextureKey::Vegetables));
-  FailCheck(ResTex.Insert("res/gameMain/metal.png", TextureKey::Metal));
-  FailCheck(ResTex.Insert("res/gameMain/insect.png", TextureKey::Insect));
-  FailCheck(ResMed.Insert("res/sound/gameMain.wav", AudioKey::Game));
-  FailCheck(ResMed.Insert("res/sound/eating.wav", AudioKey::Eating));
-  FailCheck(ResMed.Insert("res/sound/time_out.wav", AudioKey::TimeOut));
-  plates[0] = Box{ Vec2f(-325, -320), Vec2f(150, 150) };
-  plates[1] = Box{ Vec2f(-75, -320), Vec2f(150, 150) };
-  plates[2] = Box{ Vec2f(175, -320), Vec2f(150, 150) };
-  timer_pos[3] = Vec2f(-100, 100);
-  timer_pos[2] = Vec2f(0, 100);
-  timer_pos[1] = Vec2f(100, 100);
-  timer_pos[0] = Vec2f(200, 100);
+	Reset();
+	FailCheck(ResTex.Insert("res/gameMain/tomoko.png", TextureKey::GameTomoko));
+	FailCheck(ResTex.Insert("res/gameMain/numbers.png", TextureKey::Numbers));
+	FailCheck(ResTex.Insert("res/gameMain/plate.png", TextureKey::Plate));
+	FailCheck(ResTex.Insert("res/gameMain/vegetables.png", TextureKey::Vegetables));
+	FailCheck(ResTex.Insert("res/gameMain/metal.png", TextureKey::Metal));
+	FailCheck(ResTex.Insert("res/gameMain/insect.png", TextureKey::Insect));
+	FailCheck(ResMed.Insert("res/sound/gameMain.wav", AudioKey::Game));
+	FailCheck(ResMed.Insert("res/sound/eating.wav", AudioKey::Eating));
+	FailCheck(ResMed.Insert("res/sound/time_out.wav", AudioKey::TimeOut));
+	plates[0] = Box{ Vec2f(-325, -320), Vec2f(150, 150) };
+	plates[1] = Box{ Vec2f(-75, -320), Vec2f(150, 150) };
+	plates[2] = Box{ Vec2f(175, -320), Vec2f(150, 150) };
+	timer_pos[3] = Box{ Vec2f(-150, 400), Vec2f(60, 60) };
+	timer_pos[2] = Box{ Vec2f(-90, 400), Vec2f(60, 60) };
+	timer_pos[1] = Box{ Vec2f(30, 400), Vec2f(60, 60) };
+	timer_pos[0] = Box{ Vec2f(90, 400), Vec2f(60, 60) };
   is_game_end = false;
   is_end = false;
 
@@ -207,63 +207,77 @@ void GameMain::DisplayedTimer(int _time){
 		time_vector.push_back(time % 10);
 		time /= 10;
 	}
+	timer_font.size(60);
 
-	timer_font.size(50);
+	timer_font.draw(",", Vec2f(-30, 400), Color::white);
+
 	for (int i = 0; i != time_vector.size(); ++i){
 		SwitchNomber(time_vector[i], timer_pos[i]);
 	}
 
 	for (int i = 3; i > time_vector.size() - 1; --i){
-		timer_font.draw("0", timer_pos[i], Color::white);
+		drawTextureBox(timer_pos[i].pos.x(), timer_pos[i].pos.y(), timer_pos[i].size.x(), timer_pos[i].size.y(),
+			128, 64, 64, 64, ResTex.Get(TextureKey::Numbers));
 	}
 
 	time_vector.clear();
 }
 
-void GameMain::SwitchNomber(int _value,Vec2f _vec){
+void GameMain::SwitchNomber(int _value, Box _box){
 	switch (_value){
 	case 0:
-		timer_font.draw("0", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			128, 64, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	case 1:
-		timer_font.draw("1", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			0, 0, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	case 2:
-		timer_font.draw("2", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			64, 0, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	case 3:
-		timer_font.draw("3", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			128, 0, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	case 4:
-		timer_font.draw("4", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			192, 0, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	case 5:
-		timer_font.draw("5", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			256, 0, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	case 6:
-		timer_font.draw("6", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			320, 0, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	case 7:
-		timer_font.draw("7", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			384, 0, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	case 8:
-		timer_font.draw("8", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			0, 64, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	case 9:
-		timer_font.draw("9", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			64, 64, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 
 	default:
-		timer_font.draw("0", _vec, Color::white);
+		drawTextureBox(_box.pos.x(), _box.pos.y(), _box.size.x(), _box.size.y(),
+			128, 64, 64, 64, ResTex.Get(TextureKey::Numbers));
 		break;
 	}
 }
