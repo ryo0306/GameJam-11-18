@@ -2,6 +2,8 @@
 
 GameMain::GameMain(){
   Reset();
+  FailCheck(ResTex.Insert("res/gameMain/tomoko.png", TextureKey::GameTomoko));
+  FailCheck(ResTex.Insert("res/gameMain/numbers.png", TextureKey::Numbers));
   FailCheck(ResTex.Insert("res/gameMain/plate.png", TextureKey::Plate));
   FailCheck(ResTex.Insert("res/gameMain/vegetables.png", TextureKey::Vegetables));
   FailCheck(ResTex.Insert("res/gameMain/metal.png", TextureKey::Metal));
@@ -12,6 +14,14 @@ GameMain::GameMain(){
   plates[0] = Box{ Vec2f(-325, -320), Vec2f(150, 150) };
   plates[1] = Box{ Vec2f(-75, -320), Vec2f(150, 150) };
   plates[2] = Box{ Vec2f(175, -320), Vec2f(150, 150) };
+  timer_pos[3] = Vec2f(-100, 100);
+  timer_pos[2] = Vec2f(0, 100);
+  timer_pos[1] = Vec2f(100, 100);
+  timer_pos[0] = Vec2f(200, 100);
+  is_game_end = false;
+  is_end = false;
+
+  time_limit = TIMELIMITMAX + ENDWAITTIME;
 }
 
 void GameMain::Update(){
@@ -79,10 +89,27 @@ void GameMain::Update(){
   if (food_click_limit > 0){
     food_click_limit--;
   }
+
+  time_limit--;
+  if (time_limit < ENDWAITTIME){
+	  is_game_end = true;
+  }
 }
 
 void GameMain::Draw(){
   App::Get().bgColor(Color::maroon);
+
+  drawTextureBox(-360, -480, 720, 960, 0, 0, 720, 960, ResTex.Get(TextureKey::GameTomoko));
+
+  if (is_game_end != true){
+	  DisplayedTimer(time_limit);
+  }
+  else{
+	  /* "I—¹"‚Ì•¶Žš•\‹L */
+  }
+  if (App::Get().isPushKey('0')){
+    scene_manager->ChangeScene(std::make_shared<Result>());
+  }
 
   for (int i = 0; i < 3; i++)
   {
@@ -100,7 +127,7 @@ void GameMain::Reset()
 {
   pattern = rand(1, 6);
   Shuffle();
-  time_limit = TIMELIMITMAX;
+
   food_click_limit = FOODCLICKLIMIT;
 }
 
@@ -172,4 +199,71 @@ void GameMain::UpdateList(){
       selected.clear();
     }
   }
+}
+
+void GameMain::DisplayedTimer(int _time){
+	unsigned int time = (_time * 10) / 6;
+	while (time > 0){
+		time_vector.push_back(time % 10);
+		time /= 10;
+	}
+
+	timer_font.size(50);
+	for (int i = 0; i != time_vector.size(); ++i){
+		SwitchNomber(time_vector[i], timer_pos[i]);
+	}
+
+	for (int i = 3; i > time_vector.size() - 1; --i){
+		timer_font.draw("0", timer_pos[i], Color::white);
+	}
+
+	time_vector.clear();
+}
+
+void GameMain::SwitchNomber(int _value,Vec2f _vec){
+	switch (_value){
+	case 0:
+		timer_font.draw("0", _vec, Color::white);
+		break;
+
+	case 1:
+		timer_font.draw("1", _vec, Color::white);
+		break;
+
+	case 2:
+		timer_font.draw("2", _vec, Color::white);
+		break;
+
+	case 3:
+		timer_font.draw("3", _vec, Color::white);
+		break;
+
+	case 4:
+		timer_font.draw("4", _vec, Color::white);
+		break;
+
+	case 5:
+		timer_font.draw("5", _vec, Color::white);
+		break;
+
+	case 6:
+		timer_font.draw("6", _vec, Color::white);
+		break;
+
+	case 7:
+		timer_font.draw("7", _vec, Color::white);
+		break;
+
+	case 8:
+		timer_font.draw("8", _vec, Color::white);
+		break;
+
+	case 9:
+		timer_font.draw("9", _vec, Color::white);
+		break;
+
+	default:
+		timer_font.draw("0", _vec, Color::white);
+		break;
+	}
 }

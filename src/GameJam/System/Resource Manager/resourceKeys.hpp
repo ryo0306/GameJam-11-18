@@ -4,12 +4,20 @@ enum class AudioKey{
 	Select,
   Game,
   Eating,
-  TimeOut
+  TimeOut,
+  Result
 };
 
 enum class TextureKey{
+  Title,
+  GameTomoko,
+  Numbers,
 	Plate,
   Vegetables,
   Metal,
-  Insect
+  Insect,
+  ResultDash,
+  ResultToilet,
+  ResultInsect,
+  ResultMetal
 };

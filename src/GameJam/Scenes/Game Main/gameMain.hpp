@@ -9,10 +9,12 @@
 #include "../../Foods/Metal/Metal.hpp"
 #include "../../Foods/Vegetables/Vegetables.hpp"
 #include <fstream>
+#include <vector>
 
 #define FOODTEXTURESIZE 100
 #define FOODTOFOODLENGTH 200
 #define TIMELIMITMAX 600
+#define ENDWAITTIME 6 * 2
 #define FOODCLICKLIMIT 5
 
 class GameMain : public Scene{
@@ -23,7 +25,12 @@ private:
   Box plates[3];
 
   Random rand;
+  Font timer_font = Font("res/meiryo.ttc");
   int time_limit = TIMELIMITMAX;
+  std::vector<int> time_vector;
+  Vec2f timer_pos[4];
+  bool is_game_end;
+  bool is_end;
   int pattern = rand(1, 6);
   int food_click_limit = 0;
 
@@ -35,4 +42,6 @@ public:
   void Reset();
   void SetFoodPos();
   void UpdateList();
+  void DisplayedTimer(int _time);
+  void SwitchNomber(int _value,Vec2f _vec);
 };

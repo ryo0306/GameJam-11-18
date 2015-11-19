@@ -1,6 +1,7 @@
 #include "title.hpp"
 
 Title::Title(){
+  FailCheck(ResTex.Insert("res/title/title.png", TextureKey::Title));
   FailCheck(ResMed.Insert("res/sound/select.wav", AudioKey::Select));
 }
 
@@ -9,7 +10,8 @@ void Title::Update(){
 }
 
 void Title::Draw(){
-  App::Get().bgColor(Color::navy);
+  App::Get().bgColor(Color::white);
+  drawTextureBox(-360, -480, 720, 960, 0, 0, 720, 960, ResTex.Get(TextureKey::Title));
   Box test_box{ Vec2f(-200, -300), Vec2f(400, 100) };
   if (Collision::MouseToBox(App::Get().mousePosition(), test_box)){
     drawFillBox(test_box.pos.x(), test_box.pos.y(),
