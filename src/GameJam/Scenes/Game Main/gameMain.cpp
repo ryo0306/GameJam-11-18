@@ -34,7 +34,8 @@ void GameMain::Update(){
         Reset();
       }
     }
-    else if (App::Get().isPushKey(GLFW_KEY_LEFT_SHIFT) || App::Get().isPushKey('Z')){
+    
+    if (App::Get().isPushKey(GLFW_KEY_LEFT_SHIFT) || App::Get().isPushKey('Z')){
       ResMed.Get(AudioKey::Eating).play();
       selected.push_back(SelectedFood(Position::Left, food[0]->GetFoodType(), food[0]->GetFoodVariation()));
       Reset();
@@ -47,7 +48,8 @@ void GameMain::Update(){
         Reset();
       }
     }
-    else if (App::Get().isPushKey(GLFW_KEY_SPACE) || App::Get().isPushKey('B')){
+    
+    if (App::Get().isPushKey(GLFW_KEY_SPACE) || App::Get().isPushKey('B')){
       ResMed.Get(AudioKey::Eating).play();
       selected.push_back(SelectedFood(Position::Middle, food[1]->GetFoodType(), food[1]->GetFoodVariation()));
       Reset();
@@ -60,7 +62,8 @@ void GameMain::Update(){
         Reset();
       }
     }
-    else if (App::Get().isPushKey(GLFW_KEY_RIGHT_SHIFT) || App::Get().isPushKey(GLFW_KEY_SLASH)){
+    
+    if (App::Get().isPushKey(GLFW_KEY_RIGHT_SHIFT) || App::Get().isPushKey(GLFW_KEY_SLASH)){
       ResMed.Get(AudioKey::Eating).play();
       selected.push_back(SelectedFood(Position::Right, food[2]->GetFoodType(), food[2]->GetFoodVariation()));
       Reset();
