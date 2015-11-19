@@ -21,7 +21,6 @@ private:
   std::list<SelectedFood> selected;
 
   Random rand;
-  //FoodObject* food[3];
   int time_limit = TIMELIMITMAX;
   int pattern = rand(1, 6);
   int food_click_limit = 0;

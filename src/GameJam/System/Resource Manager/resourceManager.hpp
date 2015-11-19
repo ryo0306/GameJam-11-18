@@ -7,20 +7,20 @@
 namespace hidden{
   class AudioManager{
   private:
-    std::map<int, Media> resource;
+    std::map<AudioKey, Media> resource;
   public:
     AudioManager() = default;
-    void Insert(std::string filepath, int key);
-    Media Get(int key);
+    void Insert(std::string filepath, AudioKey key);
+    Media Get(AudioKey key);
   };
 
   class TextureManager{
   private:
-    std::map<int, Texture> resource;
+    std::map<TextureKey, Texture> resource;
   public:
     TextureManager() = default;
-    void Insert(std::string filepath, int key);
-    Texture Get(int key);
+    void Insert(std::string filepath, TextureKey key);
+    Texture Get(TextureKey key);
   };
 }
 
