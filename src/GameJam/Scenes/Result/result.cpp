@@ -2,6 +2,8 @@
 
 Result::Result()
 {
+  FailCheck(ResTex.Insert("res/result/insect.png", TextureKey::ResultInsect));
+  FailCheck(ResMed.Insert("res/sound/result.wav", AudioKey::Result));
 }
 
 void Result::Update(){
@@ -23,9 +25,11 @@ void Result::Draw(){
   drawFillBox(background.pos.x(), background.pos.y(), background.size.x(), background.size.y(), image);
 
   font.size(50);
+
   //直すべき？
   if (animation == Animation::Select)
   {
+    drawTextureBox(-200, -300, 600, 600, 0, 0, 1024, 1024, ResTex.Get(TextureKey::ResultInsect));
     font.draw("タイトルへ", title_f.pos, Color::white);
     font.draw("リトライ", retry_f.pos, Color::white);
   }
@@ -96,6 +100,9 @@ void Result::AnimationUpdate()
     }
     break;
   case Animation::Select:
+    if (!ResMed.Get(AudioKey::Result).isPlaying()){
+      ResMed.Get(AudioKey::Result).play();
+    }
     if (FadingIn())
     {
       Select();
