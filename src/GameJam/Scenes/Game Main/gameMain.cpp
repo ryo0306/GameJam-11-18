@@ -2,6 +2,10 @@
 
 GameMain::GameMain(){
   Reset();
+  FailCheck(ResTex.Insert("res/gameMain/plate.png", TextureKey::Plate));
+  FailCheck(ResTex.Insert("res/gameMain/vegetables.png", TextureKey::Vegetables));
+  FailCheck(ResTex.Insert("res/gameMain/metal.png", TextureKey::Metal));
+  FailCheck(ResTex.Insert("res/gameMain/insect.png", TextureKey::Insect));
 }
 
 void GameMain::Update(){
@@ -58,7 +62,6 @@ void GameMain::Draw(){
     scene_manager->ChangeScene(std::make_shared<Result>());
   }
 
-  // food‚Ì•`‰æ
   for (int i = 0; i < 3; i++)
   {
     food[i]->Draw();
@@ -69,7 +72,6 @@ void GameMain::Draw(){
   }
 }
 
-
 void GameMain::Reset()
 {
   pattern = rand(1, 6);
@@ -78,8 +80,6 @@ void GameMain::Reset()
   food_click_limit = 10;
 }
 
-// ‚±‚ê‚ð‚·‚é‚ñ‚¾‚Á‚½‚çˆÊ’u‚ð
-// ‚¸‚ç‚µ‚½•û‚ª‚¢‚¢‚©‚àHH
 void GameMain::Shuffle()
 {
   switch (pattern)
@@ -131,15 +131,6 @@ void GameMain::SetFoodPos()
   food[0]->SetBox(Box{ Vec2f(-300, -300), Vec2f(100, 100) });
   food[1]->SetBox(Box{ Vec2f(-50, -300), Vec2f(100, 100) });
   food[2]->SetBox(Box{ Vec2f(200, -300), Vec2f(100, 100) });
-}
-
-
-void GameMain::Move()
-{
-  for (int i = 0; i < 3; i++)
-  {
-
-  }
 }
 
 void GameMain::UpdateList(){

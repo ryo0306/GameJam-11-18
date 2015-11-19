@@ -14,10 +14,20 @@ void Vegetables::Update(){
 }
 
 void Vegetables::Draw(){
-	drawFillBox(box.pos.x(), box.pos.y(),
-		box.size.x(), box.size.y(), Color::green);
-
-
+  switch (variation){
+  case FoodVariation::Var1:
+    drawTextureBox(box.pos.x(), box.pos.y(), box.size.x(), box.size.y(),
+      0, 0, 256, 256, ResTex.Get(TextureKey::Vegetables));
+    break;
+  case FoodVariation::Var2:
+    drawTextureBox(box.pos.x(), box.pos.y(), box.size.x(), box.size.y(),
+      256, 0, 256, 256, ResTex.Get(TextureKey::Vegetables));
+    break;
+  case FoodVariation::Var3:
+    drawTextureBox(box.pos.x(), box.pos.y(), box.size.x(), box.size.y(),
+      256, 256, 256, 256, ResTex.Get(TextureKey::Vegetables));
+    break;
+  }
 }
 
 Box Vegetables::GetBox(){

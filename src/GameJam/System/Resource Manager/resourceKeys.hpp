@@ -5,5 +5,8 @@ enum class AudioKey{
 };
 
 enum class TextureKey{
-	Metal,
+	Plate,
+  Vegetables,
+  Metal,
+  Insect
 };

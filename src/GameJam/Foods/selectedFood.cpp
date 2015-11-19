@@ -64,20 +64,20 @@ void SelectedFood::Draw(){
 void SelectedFood::DrawVegetable(FoodVariation variation){
   switch(food_variation){
   case FoodVariation::Var1:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::red);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      0, 0, 256, 256, ResTex.Get(TextureKey::Vegetables));
     break;
   case FoodVariation::Var2:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::yellow);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      256, 0, 256, 256, ResTex.Get(TextureKey::Vegetables));
     break;
   case FoodVariation::Var3:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::green);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      256, 256, 256, 256, ResTex.Get(TextureKey::Vegetables));
     break;
   default: 
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::green);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      0, 0, 256, 256, ResTex.Get(TextureKey::Vegetables));
     break;
   }
 }
@@ -85,20 +85,20 @@ void SelectedFood::DrawVegetable(FoodVariation variation){
 void SelectedFood::DrawMetal(FoodVariation variation){
   switch (food_variation){
   case FoodVariation::Var1:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::black);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      0, 0, 256, 256, ResTex.Get(TextureKey::Metal));
     break;
   case FoodVariation::Var2:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::gray);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      256, 0, 256, 256, ResTex.Get(TextureKey::Metal));
     break;
   case FoodVariation::Var3:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::white);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      256, 256, 256, 256, ResTex.Get(TextureKey::Metal));
     break;
   default:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::white);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      0, 0, 256, 256, ResTex.Get(TextureKey::Metal));
     break;
   }
 }
@@ -106,20 +106,20 @@ void SelectedFood::DrawMetal(FoodVariation variation){
 void SelectedFood::DrawInsect(FoodVariation variation){
   switch (food_variation){
   case FoodVariation::Var1:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::olive);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      0, 0, 256, 256, ResTex.Get(TextureKey::Insect));
     break;
   case FoodVariation::Var2:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::magenta);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      256, 0, 256, 256, ResTex.Get(TextureKey::Insect));
     break;
   case FoodVariation::Var3:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::blue);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      256, 256, 256, 256, ResTex.Get(TextureKey::Insect));
     break;
   default:
-    drawFillBox(food_box.pos.x(), food_box.pos.y(),
-      food_box.size.x(), food_box.size.y(), Color::magenta);
+    drawTextureBox(food_box.pos.x(), food_box.pos.y(), food_box.size.x(), food_box.size.y(),
+      0, 0, 256, 256, ResTex.Get(TextureKey::Insect));
     break;
   }
 }

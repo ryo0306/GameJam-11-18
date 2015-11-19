@@ -30,7 +30,6 @@ public:
   void Update() override;
   void Draw() override;
   void Shuffle();
-  void Move();
   void Reset();
   void SetFoodPos();
   void UpdateList();

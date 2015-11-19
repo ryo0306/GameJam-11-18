@@ -29,3 +29,12 @@ enum class FoodVariation{
   Var2,
   Var3
 };
+
+static void FailCheck(bool result){
+  if (!result){
+    std::cout << "Load Fail!" << std::endl;
+  }
+  else{
+    std::cout << "Load OK!" << std::endl;
+  }
+}

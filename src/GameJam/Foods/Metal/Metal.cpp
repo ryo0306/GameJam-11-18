@@ -14,10 +14,20 @@ void Metal::Update(){
 }
 
 void Metal::Draw(){
-	/*drawTextureBox(pos.x(), pos.y(), 128, 128, 0, 0, 128, 128, 
-		ResourceManager::Texture().Get((int)TextureKey::Metal));*/
-	drawFillBox(box.pos.x(), box.pos.y(),
-		box.size.x(), box.size.y(), Color::white);
+  switch (variation){
+  case FoodVariation::Var1:
+    drawTextureBox(box.pos.x(), box.pos.y(), box.size.x(), box.size.y(),
+      0, 0, 256, 256, ResTex.Get(TextureKey::Metal));
+    break;
+  case FoodVariation::Var2:
+    drawTextureBox(box.pos.x(), box.pos.y(), box.size.x(), box.size.y(),
+      256, 0, 256, 256, ResTex.Get(TextureKey::Metal));
+    break;
+  case FoodVariation::Var3:
+    drawTextureBox(box.pos.x(), box.pos.y(), box.size.x(), box.size.y(),
+      256, 256, 256, 256, ResTex.Get(TextureKey::Metal));
+    break;
+  }
 }
 
 Box Metal::GetBox(){
