@@ -4,6 +4,13 @@
 #include "../Title/title.hpp"
 #include "../../System/commons.hpp"
 #include "../../Utility/Collision/collision.hpp"
+#include "../../Foods/resultData.hpp"
+#define SUCCESSMIN 5
+#define SECRET_V 100
+#define SECRET_M 100
+#define SECRET_I 100
+
+
 
 class Result : public Scene{
 private:
@@ -22,7 +29,9 @@ private:
     Insect,
     Metal,
     Success,
+    Failure,
     Secret,
+
   };
 
   Font font = Font("res/meiryo.ttc");
@@ -34,9 +43,13 @@ private:
   bool select_active = false;
   Animation animation = Animation::Dash;
   float fadinf_a = 0;
+  ResultData result;
+  Type type;
+  Texture form;
 
 public:
-  Result();
+  Result() = default;
+  explicit Result(ResultData result);
   void Update() override;
   void Draw() override;
   void Select();
@@ -47,4 +60,6 @@ public:
   void TimeReset();
   void BgmPlay();
   void TypeDecision(/*struct*/);
+  void CheckSuccess();
+  void StopBgm();
 };

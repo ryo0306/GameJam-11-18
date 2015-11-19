@@ -5,7 +5,9 @@ enum class AudioKey{
   Game,
   Eating,
   TimeOut,
-  Result
+  Result,
+  Success,
+  Failure,
 };
 
 enum class TextureKey{
@@ -20,5 +22,7 @@ enum class TextureKey{
   ResultDash,
   ResultToilet,
   ResultInsect,
-  ResultMetal
+  ResultMetal,
+  ResultPerfect,
+  ResultSecret,
 };
